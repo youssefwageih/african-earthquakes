@@ -90,6 +90,7 @@ ORDER BY total_earthquakes DESC;
 | **Eritrea** | 87 | 4.53 | 5.6 | 4.0 | 24.14% |
 | **Uganda** | 68 | 4.50 | 5.7 | 3.2 | 11.76% |
 | **Unassigned / Border** | 61 | 4.44 | 5.6 | 3.3 | 16.39% |
+
 ![African Seismic Activity](assets/African%20Seismic%20Activity.png)
 - **The Afar & Horn of Africa Hotspot:** **Ethiopia** (420 quakes), **Somalia** (296), and **Djibouti** (241) together represent over **35% of all seismic events** on the continent, situated directly above the active Afar Triple Junction where the Nubian, Somali, and Arabian plates are actively pulling apart.
 - **Sparse Telemetry in High-Activity Zones:** Over **43.9% of Somali records** and **33.3% of Ethiopian records** carry measurement flags, reflecting sparse ground sensor networks in East Africa compared to North Africa (Algeria has only 2.22% low-quality records).
@@ -156,6 +157,7 @@ ORDER BY event_year;
 | **2024** | 192 | 4.443 | 5.4 | 240 | -48 | -20.00% | Decrease |
 | **2025** | 350 | 4.467 | 5.9 | 192 | +158 | **+82.29%** | Increase |
 | **2026** | 68 | 4.446 | 5.9 | 350 | -282 | -80.57% | PARTIAL YEAR - do not compare |
+
 ![Trends & Severity](assets/Trends%20&%20Severity.png)
 - **The 2018 Mayotte Surge (+181%):** The dramatic jump in 2018 (from 90 to 253 quakes) was driven by an intense undersea seismic crisis off Mayotte, which later resulted in the birth of a major submarine volcano.
 - **The 2023–2025 Acceleration (+82.3%):** After the deadly September 2023 Morocco Al Haouz disaster, annual activity accelerated sharply to **350 events in 2025**—the single most active seismic year in the entire 16-year catalog. This coincides with peak reservoir impoundment stages at the Grand Ethiopian Renaissance Dam (GERD) in East Africa.
@@ -190,6 +192,7 @@ ORDER BY event_count DESC;
 | **Moderate** | 5.0 – 5.9 | 232 | **8.47%** |
 | **Minor** | < 4.0 | 62 | **2.26%** |
 | **Strong** | 6.0+ | 5 | **0.18%** |
+
 ![Geography & Regions](assets/Geography%20&%20Regions.png)
 - **The 89% Foundation:** The vast majority of detected African seismicity sits in the **Light category (4.0–4.9)**. These tremors are widely felt by local populations (rattling dishes and swaying light fixtures) but rarely cause structural collapse on their own.
 - **Rare but Destructive Outliers:** Only **5 events (0.18%)** reached or exceeded magnitude 6.0. However, because they rupture at shallow crustal depths in areas with unreinforced masonry, these rare quakes produce nearly 100% of the continent's seismic fatalities.
