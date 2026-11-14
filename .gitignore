@@ -1,0 +1,24 @@
+# Data files (large datasets & local exports)
+*.csv
+*.tsv
+~$*.xlsx
+*.xlsx.tmp
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb_checkpoints/
+.venv/
+env/
+
+# Temporary / Scratch scripts
+run_analysis.py
+run_quality.py
+reference_readme.md
+
+# Operating System & IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
