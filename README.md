@@ -1,14 +1,23 @@
 # 🌍 African Seismic Activity Analysis (2010–2026)
 
+![Power BI](https://img.shields.io/badge/Power_BI-Interactive_Dashboards-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Dashboards](https://img.shields.io/badge/Dashboards-100%25_Power_BI-yellow?style=flat&logo=powerbi&logoColor=black)
 ![PostgreSQL](https://img.shields.io/badge/SQL-PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
 ![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-Data_Cleaning-217346?style=flat&logo=microsoft-excel&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-Dashboard-F2C811?style=flat&logo=powerbi&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)
 ---
 
 # Introduction
 
 📊 Dive into 16+ years of African seismic data! Combining raw geological sensor data from the **United States Geological Survey (USGS)** with an end-to-end data pipeline built in **Microsoft Excel, PostgreSQL, and Power BI**, this project investigates where tectonic plates are shifting, tracks annual acceleration, audits sensor reliability, and explores the correlation between mega-reservoir filling (such as the **Grand Ethiopian Renaissance Dam - GERD**) and regional seismic activity.
+
+> [!IMPORTANT]
+> ### 💡 Dashboards Built 100% in Microsoft Power BI
+> All 4 visual dashboards showcased throughout this project were **designed, modeled, and developed exclusively in Microsoft Power BI Desktop** (packaged in the interactive [`Earthquakes.pbix`](Earthquakes.pbix) report file, with full high-resolution snapshot exports in the [`assets/`](assets/) folder).
+> 
+> **These dashboards were NOT created in PowerPoint (PPT), NOT generated with Microsoft Excel charts, and NOT plotted using Python (e.g. Matplotlib, Seaborn, or Plotly).** 
+> 
+> Microsoft Power BI was used as the sole Business Intelligence platform to deliver native geospatial bubble coordinate maps, dynamic cross-filtering across 2,740 events, custom DAX measures, and multi-page interactive analytics.
 
 🔍 SQL queries? Check out all 7 scripts directly in this repository:
 1. [1_most_active_countries.sql](1_most_active_countries.sql)
@@ -44,6 +53,7 @@ To answer this without speculation, I extracted and processed **2,740 seismic ev
 Before interpreting seismic metrics, it is vital to audit sensor coverage and measurement quality across Africa's 2,740 recorded events:
 
 ![Data Quality Overview](assets/Data%20Quality.png)
+*Figure: Power BI Dashboard — Data Quality & Sensor Telemetry Audit (Designed in Microsoft Power BI Desktop • [`assets/Data Quality.png`](assets/Data%20Quality.png))*  
 *Sensor telemetry audit across `earthquakes`: 81.6% of records carry a fixed default depth of 10.0 km due to sparse seismometer arrays, 31.2% are offshore events, and 24.6% (673 records) exhibit azimuthal station gaps $> 180^\circ$ or spatial errors $> 10\text{ km}$.*
 
 ---
@@ -53,11 +63,32 @@ Database creation and table definition scripts are organized in the [`sql_load/`
 - [`sql_load/3_load_data.sql`](sql_load/3_load_data.sql)
 ---
 # Tools I Used
+- **Microsoft Power BI (Primary Dashboard & Visualization Platform):** Designed and authored an interactive 4-page dashboard suite ([`Earthquakes.pbix`](Earthquakes.pbix) / visual captures preserved in [`assets/`](assets/)). Built with native Power BI visual containers, custom DAX measures, dynamic multi-attribute slicers, geospatial bubble coordinate maps, and cross-report drilldowns. **All dashboards were engineered 100% inside Power BI—not in PowerPoint, not in Excel, and not via Python scripts.**
 - **SQL (PostgreSQL):** Advanced querying including window functions (`LAG() OVER()`, `SUM() OVER()`, `AVG() OVER(ROWS BETWEEN ...)`), Common Table Expressions (CTEs), multi-condition boolean checks, and string aggregation (`STRING_AGG`).
-- **Microsoft Excel:** Raw data ingestion, spatial bounding box filtering, null auditing, and feature engineering (magnitude tiers, depth classifications, date parsing).
-- **Microsoft Power BI:** Interactive 4-page dashboard ([Earthquakes.pbix](Earthquakes.pbix)) featuring geographic bubble epicenter maps, YoY acceleration charts, magnitude distributions, and sensor quality telemetry.
+- **Microsoft Excel:** Raw data ingestion, spatial bounding box filtering, null auditing, and feature engineering (magnitude tiers, depth classifications, date parsing) prior to SQL staging. *(Used solely for preliminary data preparation, not for dashboard generation).*
 - **Git & GitHub:** Version control, modular SQL query authoring, and documentation architecture.
+
 ---
+
+# 📊 Interactive Power BI Dashboards
+
+> [!NOTE]
+> **Accessing the Interactive Report:**
+> - **Power BI File (.pbix):** Download [`Earthquakes.pbix`](Earthquakes.pbix) and open in **Microsoft Power BI Desktop** to interact directly with dynamic slicers, visual tooltips, and cross-filtering.
+> - **Visual Backups (Images):** If you do not have Power BI Desktop installed, all 4 dashboard pages are saved in the [`assets/`](assets/) folder as high-resolution images.
+> - **Tooling Confirmation:** **Power BI is the sole visual presentation tool used here.** Neither PowerPoint, Excel charting, nor Python libraries (Matplotlib / Seaborn) were used to create these dashboards.
+
+### Dashboard Suite Breakdown (4 Interactive Pages)
+
+| # | Power BI Dashboard | File / Asset Link | Primary Focus & Visual Architecture |
+| :--- | :--- | :--- | :--- |
+| **1** | **African Seismic Activity (Overview)** | [`assets/African Seismic Activity.png`](assets/African%20Seismic%20Activity.png) | Continental executive KPI summary (Total Earthquakes: 2,740, Peak Magnitude: 6.8, Avg Magnitude: 4.47, Flagged Records: 24.6%), interactive geospatial epicenter bubble map, top 10 most active countries, and magnitude class distribution. |
+| **2** | **Trends & Temporal Severity** | [`assets/Trends & Severity.png`](assets/Trends%20&%20Severity.png) | 16-year annual seismic progression (2010–2026), YoY change tracking, quarterly & monthly frequency swarms, and severe events ($\text{mag} \ge 6.0$) timeline. |
+| **3** | **Geography & Regional Hotspots** | [`assets/Geography & Regions.png`](assets/Geography%20&%20Regions.png) | Comparative regional tectonics (East African Rift, Afar Triple Junction, North African Mediterranean margin), country-by-country depth vs. magnitude scatter profiles, and epicenter density clusters. |
+| **4** | **Data Quality & Sensor Telemetry Audit** | [`assets/Data Quality.png`](assets/Data%20Quality.png) | Seismological telemetry audit: station gap azimuths ($> 180^\circ$), horizontal and depth error spreads, and identification of the 81.6% fixed default 10.0 km focal depth records. |
+
+---
+
 # The Analysis
 ### 1. Most Active African Countries (Seismic Hotspots)
 📁 File: [1_most_active_countries.sql](1_most_active_countries.sql)
@@ -92,6 +123,7 @@ ORDER BY total_earthquakes DESC;
 | **Unassigned / Border** | 61 | 4.44 | 5.6 | 3.3 | 16.39% |
 
 ![African Seismic Activity](assets/African%20Seismic%20Activity.png)
+*Figure: Power BI Dashboard — African Seismic Activity Overview (Designed natively in Microsoft Power BI Desktop • [`assets/African Seismic Activity.png`](assets/African%20Seismic%20Activity.png))*
 - **The Afar & Horn of Africa Hotspot:** **Ethiopia** (420 quakes), **Somalia** (296), and **Djibouti** (241) together represent over **35% of all seismic events** on the continent, situated directly above the active Afar Triple Junction where the Nubian, Somali, and Arabian plates are actively pulling apart.
 - **Sparse Telemetry in High-Activity Zones:** Over **43.9% of Somali records** and **33.3% of Ethiopian records** carry measurement flags, reflecting sparse ground sensor networks in East Africa compared to North Africa (Algeria has only 2.22% low-quality records).
 ---
@@ -159,6 +191,7 @@ ORDER BY event_year;
 | **2026** | 68 | 4.446 | 5.9 | 350 | -282 | -80.57% | PARTIAL YEAR - do not compare |
 
 ![Trends & Severity](assets/Trends%20&%20Severity.png)
+*Figure: Power BI Dashboard — Temporal Trends & Annual Severity (Designed natively in Microsoft Power BI Desktop • [`assets/Trends & Severity.png`](assets/Trends%20&%20Severity.png))*
 - **The 2018 Mayotte Surge (+181%):** The dramatic jump in 2018 (from 90 to 253 quakes) was driven by an intense undersea seismic crisis off Mayotte, which later resulted in the birth of a major submarine volcano.
 - **The 2023–2025 Acceleration (+82.3%):** After the deadly September 2023 Morocco Al Haouz disaster, annual activity accelerated sharply to **350 events in 2025**—the single most active seismic year in the entire 16-year catalog. This coincides with peak reservoir impoundment stages at the Grand Ethiopian Renaissance Dam (GERD) in East Africa.
 ---
@@ -194,6 +227,7 @@ ORDER BY event_count DESC;
 | **Strong** | 6.0+ | 5 | **0.18%** |
 
 ![Geography & Regions](assets/Geography%20&%20Regions.png)
+*Figure: Power BI Dashboard — Geography & Regional Hotspots (Designed natively in Microsoft Power BI Desktop • [`assets/Geography & Regions.png`](assets/Geography%20&%20Regions.png))*
 - **The 89% Foundation:** The vast majority of detected African seismicity sits in the **Light category (4.0–4.9)**. These tremors are widely felt by local populations (rattling dishes and swaying light fixtures) but rarely cause structural collapse on their own.
 - **Rare but Destructive Outliers:** Only **5 events (0.18%)** reached or exceeded magnitude 6.0. However, because they rupture at shallow crustal depths in areas with unreinforced masonry, these rare quakes produce nearly 100% of the continent's seismic fatalities.
 ---
